@@ -1,0 +1,29 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del repositorio
+      uses: actions/checkout@v3
+
+    - name: Usar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Instalar dependencias
+      run: npm install
+
+    - name: Ejecutar pruebas (opcional)
+      run: echo "No hay test definidos todavía"
+
+    - name: Desplegar en Render (manual)
+      run: echo "Render ya hace auto-deploy en este caso"
